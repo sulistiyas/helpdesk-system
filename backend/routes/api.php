@@ -8,6 +8,13 @@ use App\Http\Controllers\Api\TicketController;
 use App\Http\Controllers\Api\TicketReplyController;
 
 // Public Routes
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'message' => 'Backend Helpdesk API is running',
+        'timestamp' => now()->toIso8601String(),
+    ]);
+});
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
